@@ -54,8 +54,10 @@ def main():
 
     print(f"Producing {NUM_MESSAGES} order messages to topic '{TOPIC}'...\n")
 
+    run_offset = int(time.time()) % 100000  # unique starting point each run
+
     for i in range(NUM_MESSAGES):
-        order = generate_order(i)
+        order = generate_order(run_offset + i)
         payload = serialize(order, schema)
 
         producer.produce(

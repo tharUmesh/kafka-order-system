@@ -23,8 +23,7 @@ SCHEMA_PATH = "schemas/order.avsc"
 
 MAX_RETRIES = 3
 BASE_BACKOFF_SECONDS = 1
-TRANSIENT_FAILURE_RATE = 0.25  # <-- raise this (e.g. to 0.9) during your live demo
-                                #     to reliably trigger a full retry-exhaustion -> DLQ event
+TRANSIENT_FAILURE_RATE = 0.25  
 
 
 class TransientProcessingError(Exception):
